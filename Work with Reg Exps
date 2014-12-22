@@ -1,0 +1,23 @@
+//Defining what all the characters in a regular expression mean
+
+/*This example is a way to check if an email address is formtted correctly
+(though there is other criteria not included here) */
+
+var emailCheck = /^[a-z0-9._%-]+@[a-z0-9._]+\.[a-z]{2,4}$/;
+/*
+-characters 0 and -1(from the end) denote the opening and closing of the Reg Exp
+-characters 1 and -2 ("^" and "$") denote looking through the whole string given
+-charcters 2 through 13 ("[a-z0-9._%-]") denote looking for any of the alphabet
+(lowercase), any numbers, or the symbols ".", "_", "%", "-" when they are BEFORE
+the "@" symbol.
+- characters 14 and 15 denote that the next set of brackets should be looking
+AFTER the "@" symbol
+- charcters 16-24 ("[a-z0-9._]") denote that anything after the "@" symbol, but
+BEFORE the "." can be any of these characters
+- characters 25-27 ("+\.") denote that the next set of brackets should be looking 
+AFTER the ".". The \ before it is necessary because a "." alone means any character
+where as the "\." combo defines the actual "." character.
+- characters 28-32 ("[a-z]") denote that any charcters after the "\." can be letters
+of the alphabet
+- However, characters 33-37 ("{2,4}") denote that the length must be between 2 and 4 
+(inclusive, such as org, com, edu, eu, etc)
